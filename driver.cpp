@@ -1,6 +1,5 @@
 #include <string.h>
 #include <iostream>
-#include <list> 
 
 using namespace std;
 
@@ -25,16 +24,16 @@ char* split(char stuff[], char delims[]){
         char singleCharacter[1] = {stuff[i]};
 
         if (compare(singleCharacter,delims) == true && i != 0){
-            cout << "temp string is " << tempString << "\n";
+            //cout << "temp string is " << tempString << "\n";
             characterArray[arrayIndex] = tempString;
-            cout<< "array index is " << characterArray[arrayIndex] << "\n";
+            //<< "array index is " << characterArray[arrayIndex] << "\n";
             arrayIndex++;
-            cout << "single char is " << singleCharacter << "\n";
+            //cout << "single char is " << singleCharacter << "\n";
             characterArray[arrayIndex] = singleCharacter;
-            cout<< "array index is " << characterArray[arrayIndex] << "\n";
+            //cout<< "array index is " << characterArray[arrayIndex] << "\n";
             arrayIndex++;
             memset(tempString, 0, sizeof(tempString));
-            cout << "temp string is " << tempString << "\n";
+            //cout << "temp string is " << tempString << "\n";
             
 
         } else if (i == 1 && compare(singleCharacter, delims) == true){
@@ -44,23 +43,22 @@ char* split(char stuff[], char delims[]){
         } else {
             strcat(tempString, singleCharacter);
             if(i == strlen(stuff) - 1){
-                cout << "temp string is " << tempString << "\n";
+                //cout << "temp string is " << tempString << "\n";
                 characterArray[arrayIndex] = tempString;
-                cout<< "array index is " << characterArray[arrayIndex] << "\n";
+                //cout<< "array index is " << characterArray[arrayIndex] << "\n";
             }
         }
         
         i++;
 
    }
-   return characterArray;
+   return *characterArray;
 
 }
 int main(){
     char s[] = "123+13-2";
     char delims[] = "+-*/";
+    char* myArr = split(s, delims);
 
-
-    char myArr = split(s, delims);
 }
 
