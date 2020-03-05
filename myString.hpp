@@ -8,9 +8,7 @@ using namespace std;
 class myString
 {
 private:
-    string s;
-    bool compare(string character,string delimiters);
+    static bool compare(string character,string delimiters);
 public:
-    myString(string str);
-    LinkedList split(string delimiters);
+    static string* split(string s, string delimiters);
 };

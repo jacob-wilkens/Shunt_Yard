@@ -5,10 +5,6 @@
 
 using namespace std;
 
-myString::myString(string s){
-    this->s = s;
-}
-
 bool myString::compare(string character, string delimiters){
     
     for(int i = 0; i < delimiters.length(); i++ ){
@@ -20,33 +16,37 @@ bool myString::compare(string character, string delimiters){
     return false;
 }
 
-LinkedList myString::split(string delimiters){
+ string* myString::split(string s, string delimiters){
+    string* ar = new string[s.length()];
+    int arIndex =  0;
     string myChar;
     string TempString = "";
-    LinkedList ll = LinkedList();
 
-        for(int i = 0; i < this->s.length(); i++){
-            myChar = this->s.at(i);
+        for(int i = 0; i < s.length(); i++){
+            myChar = s.at(i);
             TempString += myChar;
             if(compare(myChar, delimiters) == true){
 
                 if(TempString.length() == 1){
-                    ll.addEnd(TempString);
+                    ar[arIndex] = TempString;
+                    arIndex++;
                     TempString = "";
                 } else {
                     TempString.pop_back();
-                    ll.addEnd(TempString);
+                    ar[arIndex] = TempString;
+                    arIndex++;
                     TempString = myChar;
-                    ll.addEnd(TempString);
+                    ar[arIndex] = TempString;
+                    arIndex++;
                     TempString = "";
                 } 
             } else {
-                if(i == this->s.length() - 1){
-                    ll.addEnd(TempString);
+                if(i == s.length() - 1){
+                    ar[arIndex] = TempString;
                     break;
                 }
             }
 
         }
-        return ll;
+        return ar;
 }

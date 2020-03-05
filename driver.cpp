@@ -5,11 +5,11 @@
 using namespace std;
 
 int main(){
-    string str = "-5403+348/8*46-";
-    string delims = "+-*/";
-    myString s = myString(str);
-    LinkedList ll = s.split(delims);
-    ll.display();
-
+    string str = "hello, my name is jacob, ksdfj,kfskldfjsdlkfj,dsklfjsldkfjs,dsfkjsldkfj,dksjf";
+    string delims = ",";
+    string* m = myString::split(str, delims);
+    for(int i = 0; i < 13; i++ ){
+        cout << m[i] << "\n";
+    }
 }
 
