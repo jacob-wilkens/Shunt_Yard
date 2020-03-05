@@ -19,30 +19,23 @@ bool myString::compare(string character, string delimiters){
  string* myString::split(string s, string delimiters){
     string* ar = new string[s.length()];
     int arIndex =  0;
+    int start = 0;
+    int count = 0;
     string myChar;
-    string TempString = "";
 
         for(int i = 0; i < s.length(); i++){
             myChar = s.at(i);
-            TempString += myChar;
+            count++;
             if(compare(myChar, delimiters) == true){
-
-                if(TempString.length() == 1){
-                    ar[arIndex] = TempString;
-                    arIndex++;
-                    TempString = "";
-                } else {
-                    TempString.pop_back();
-                    ar[arIndex] = TempString;
-                    arIndex++;
-                    TempString = myChar;
-                    ar[arIndex] = TempString;
-                    arIndex++;
-                    TempString = "";
-                } 
+                ar[arIndex] = s.substr(start, count - 1);
+                arIndex++;
+                ar[arIndex] = s.at(i);
+                arIndex++;
+                start = i + 1;
+                count = 0;
             } else {
                 if(i == s.length() - 1){
-                    ar[arIndex] = TempString;
+                    ar[arIndex] = s.substr(start, count);
                     break;
                 }
             }

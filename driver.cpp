@@ -5,7 +5,7 @@
 using namespace std;
 
 int main(){
-    string str = "hello, my name is jacob, ksdfj,kfskldfjsdlkfj,dsklfjsldkfjs,dsfkjsldkfj,dksjf";
+    string str = "hello, my, name, is, jacob, d,";
     string delims = ",";
     string* m = myString::split(str, delims);
     for(int i = 0; i < 13; i++ ){
