@@ -11,5 +11,13 @@ int main(){
     for(int i = 0; i < 13; i++ ){
         cout << m[i] << "\n";
     }
+
+    LinkedList* ll = new LinkedList();
+    
+    for(int i = 0; i < 13; i++){
+        ll->addEnd(m[i]);
+    }
+    
+    ll->display();
 }
 
