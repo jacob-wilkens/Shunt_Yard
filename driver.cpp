@@ -5,19 +5,20 @@
 using namespace std;
 
 int main(){
-    string str = "hello, my, name, is, jacob, d,";
+    string str = "skdlfj,,kkk,lll,,";
     string delims = ",";
     string* m = myString::split(str, delims);
-    for(int i = 0; i < 13; i++ ){
+    for(int i = 0; i < 8; i++ ){
         cout << m[i] << "\n";
     }
 
-    LinkedList* ll = new LinkedList();
+    //LinkedList* ll = new LinkedList();
     
-    for(int i = 0; i < 13; i++){
-        ll->addEnd(m[i]);
-    }
+    //for(int i = 0; i < 5; i++){
+        //ll->addEnd(m[i]);
+    //}
     
-    ll->display();
+    //ll->display();
+    //delete ll;
 }
 
