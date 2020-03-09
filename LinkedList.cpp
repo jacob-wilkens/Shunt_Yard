@@ -266,3 +266,11 @@ void LinkedList::sort()
     }
 
 }
+string* LinkedList::toStringArray()
+{
+    string* ar = new string[this->count];
+    for(int i = 0; i < this->count; i++){
+        ar[i] = this->getIndex(i);
+    }
+    return ar;
+}

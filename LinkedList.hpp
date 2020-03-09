@@ -26,5 +26,6 @@ public:
     void display();
     void displayPointers();
     void sort(); //re-arranges the linked list such that it is in ascending numerical order
+    string* toStringArray();
 };
 #endif /* LinkedList_hpp */
