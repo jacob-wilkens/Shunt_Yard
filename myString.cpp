@@ -39,11 +39,10 @@ int myString::counting(string s, string delimiters){
             }
 
         }
-        cout << "count is " << count << "\n";
         return count;
 }
 
- string* myString::split(string s, string delimiters){
+ queue* myString::split(string s, string delimiters){
     string* ar = new string[counting(s, delimiters)];
     int arIndex =  0;
     int start = 0;
@@ -76,5 +75,14 @@ int myString::counting(string s, string delimiters){
             }
 
         }
-        return ar;
+        return transfer(ar, counting(s, delimiters));
+}
+queue* myString::transfer(string* s, int length){
+    queue* myQ = new queue();
+
+    for(int i = 0; i < length; i++){
+        myQ->enqueue(s[i]);
+    }
+
+    return myQ;
 }

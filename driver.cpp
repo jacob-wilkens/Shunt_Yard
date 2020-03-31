@@ -5,24 +5,10 @@
 using namespace std;
 
 int main(){
-    string str = "k,k,,";
-    string delims = ",";
-    string* m = myString::split(str, delims);
-    //for(int i = 0; i < 8; i++ ){
-        //cout << m[i] << "\n";
-    //}
-
-    LinkedList* ll = new LinkedList();
-    
-    for(int i = 0; i < 5; i++){
-        ll->addEnd(m[i]);
-    }
-    
-    //ll->display();
-    string * newArr = ll->toStringArray();
-    for(int i = 0; i < 5; i++){
-        cout << newArr[i] << "\n";
-    }
-    delete ll;
+    string str = "3+4*2/(1-5)";
+    string delims = "+-*/()";
+    queue* myQ = myString::split(str, delims);
+    myQ->display();
+    cout << "q size is " << myQ->getCount() << "\n";
 }
 
