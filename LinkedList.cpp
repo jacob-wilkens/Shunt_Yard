@@ -39,6 +39,7 @@ string LinkedList::removeFront()
     delete nodeToReturn;
     this->count--;
     return val;
+    
 }
 
 Node* LinkedList::runToEndOfList()
@@ -273,4 +274,7 @@ string* LinkedList::toStringArray()
         ar[i] = this->getIndex(i);
     }
     return ar;
+}
+int LinkedList::getCount(){
+    return this->count;
 }

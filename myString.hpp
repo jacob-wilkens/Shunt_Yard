@@ -1,14 +1,16 @@
-#include <string.h>
+#ifndef myString_hpp
+#define myString_hpp
+#include "Queue.hpp"
 #include <iostream>
-#include<string>
-#include "queue.hpp"
 
 using namespace std;
 
 class myString
 {
-private:
-    static bool compare(string character,string delimiters);
-public:
-    static queue* split(string s, string delimiters);
+    public:
+        static Queue* split(string s, string delims);
+    
+    private:
+        static bool isInString(string searchString, char charToFind);
 };
+#endif
