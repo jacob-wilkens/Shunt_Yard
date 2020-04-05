@@ -7,14 +7,14 @@
 
 using namespace std;
 
-void cleanup(Queue* outputQ, LinkedList* opList){
+void cleanup(Queue* outputQ, LinkedList* opList){//clears the list to output queue
     int opListLength = opList->getCount();
     for(int i = 0; i < opListLength; i++){
     outputQ->enqueue(opList->removeFront());
     } 
 }
 
-int stringIsInt(string s){
+int stringIsInt(string s){//checks to see if the string can convert to int
     int val;
     try {
         val = stoi(s);
@@ -24,7 +24,7 @@ int stringIsInt(string s){
     }
     return val;
 }
-int opperandValue(string s){
+int opperandValue(string s){//determines the value of the opperator for precendence
     if( s == "+" or s == "-"){
         return 1;
     } else if (s == "*" or s == "/"){
@@ -38,7 +38,7 @@ int opperandValue(string s){
     }
 }
 
-int perenClean(Queue* outputQ, LinkedList* opList){
+int perenClean(Queue* outputQ, LinkedList* opList){//when a closed peren is found this cleans out the opList to output queue
     bool reached = false;
     int i = 0;
     while(i < opList->getCount() || reached == false){
@@ -53,14 +53,7 @@ int perenClean(Queue* outputQ, LinkedList* opList){
     }
 }
 
-int main(){
-    string str = "(3+4)*2/(1-5)^2^3";
-    string delims = "+-*/()^";
-
-    Queue* inputQ = myString::split(str, delims);
-    Queue* outputQ = new Queue();
-    LinkedList* opList = new LinkedList();
-
+void precedenceRules(Queue* inputQ, Queue* outputQ, LinkedList* opList){
     int length = inputQ->getCount();
     int currentOp;
     int previousOp;
@@ -129,7 +122,19 @@ int main(){
         } 
     }
     cleanup(outputQ, opList);//dump rest of op stack
-     cout << "------------------------" << "\n";
+}
+
+int main(){
+    string str = "3+4*2/(1-5)^2^3";
+    string delims = "+-*/()^";
+
+    Queue* inputQ = myString::split(str, delims);
+    Queue* outputQ = new Queue();
+    LinkedList* opList = new LinkedList();
+
+    precedenceRules(inputQ, outputQ, opList);
+
+    cout << "------------------------" << "\n";
     outputQ->display();
     cout << "------------------------" << "\n";
     opList->display();
